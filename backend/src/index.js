@@ -10,6 +10,7 @@ const path = require("path");
 
 dotenv.config();
 // const __dirname = path.resolve();
+const PORT = process.env.PORT;
 
 app.use(
   cors({
@@ -29,7 +30,6 @@ if (process.env.NODE_ENV == "production") {
   });
 }
 
-const PORT = process.env.PORT || 8000;
 // app.get("/", (req, res) => {
 //   return res.json({ "msg:": "Server Working!" });
 // });
