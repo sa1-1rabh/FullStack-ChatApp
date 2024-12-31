@@ -9,7 +9,7 @@ const { server, app } = require("./lib/socket.js");
 const path = require("path");
 
 dotenv.config();
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 
 app.use(
   cors({
