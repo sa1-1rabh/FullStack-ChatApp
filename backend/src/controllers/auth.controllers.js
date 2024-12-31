@@ -54,7 +54,7 @@ async function handleLogin(req, res) {
     }
 
     createToken(user._id, res);
-    return res.status(200).json({ msg: "Successfull Login!" });
+    return res.status(200).json(user);
   } catch (err) {
     return res.json({ "error in login-": `${err}` });
   }
