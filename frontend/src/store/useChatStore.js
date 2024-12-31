@@ -17,13 +17,14 @@ export const useChatStore = create((set, get) => ({
   getUsers: async () => {
     try {
       set({ isUsersLoading: true });
+      // console.log("here\n");
       const res = await axiosInstance.get("/message/users");
-      // console.log("res->", res);
+      console.log("res->", res.data);
       set({ users: res.data });
-      console.log("users fetched - ", users);
+      // console.log("users fetched - ", get().users);
       toast.success("Fetched Users");
     } catch (err) {
-      toast.error(err.response.data.msg);
+      toast.error("Can't Get Users");
     } finally {
       set({ isUsersLoading: false });
     }
@@ -36,7 +37,7 @@ export const useChatStore = create((set, get) => ({
       set({ messages: res.data });
       toast.success("Fetched Messages!");
     } catch (err) {
-      toast.error(err.response.data.msg);
+      toast.error("Can't Get Messages");
     } finally {
       set({ isMessagesLoading: false });
     }

@@ -32,16 +32,16 @@ const App = () => {
 
       <Routes>
         <Route
+          path="/"
+          element={authUser ? <HomePage /> : <Navigate to="/login" />}
+        />
+        <Route
           path="/signup"
           element={!authUser ? <SignUpPage /> : <Navigate to="/" />}
         />
         <Route
           path="/login"
           element={!authUser ? <LoginPage /> : <Navigate to="/" />}
-        />
-        <Route
-          path="/"
-          element={authUser ? <HomePage /> : <Navigate to="/login" />}
         />
         <Route path="/settings" element={<SettingsPage />} />
         <Route
