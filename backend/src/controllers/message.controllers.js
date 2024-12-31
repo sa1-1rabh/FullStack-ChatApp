@@ -8,11 +8,13 @@ async function handleGetUsers(req, res) {
   try {
     const currUserId = req.user._id;
     // console.log("current user id-", currUserId);
-    const allUsersExceptUs = await userModel
-      .find({ _id: { $ne: currUserId } })
-      .select("-hashPassword");
+    // const allUsersExceptUs = await userModel
+    //   .find({ _id: { $ne: currUserId } })
+    //   .select("-hashPassword");
+    const allUsers = await userModel.find({});
     // console.log("server users except us-", allUsersExceptUs);
-    return res.status(200).json(allUsersExceptUs);
+    // return res.status(200).json(allUsersExceptUs);
+    return res.status(200).json(allUsers);
   } catch (err) {
     return res.status(400).json({ msg: "cant fetch users - " + err });
   }
