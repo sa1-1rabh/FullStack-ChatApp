@@ -18,8 +18,8 @@ const App = () => {
     checkAuth();
   }, []);
 
-  console.log("authUser -", authUser);
-  console.log("online users -", onlineUsers);
+  // console.log("authUser -", authUser);
+  // console.log("online users -", onlineUsers);
 
   if (isCheckingAuth && !authUser) {
     return (
