@@ -12,10 +12,11 @@ async function handleGetUsers(req, res) {
     //   .find({ _id: { $ne: currUserId } })
     //   .select("-hashPassword");
     const allUsers = await userModel.find({});
-    // console.log("server users except us-", allUsersExceptUs);
+    console.log("server users -", allUsers);
     // return res.status(200).json(allUsersExceptUs);
     return res.status(200).json(allUsers);
   } catch (err) {
+    console.log("error in userfetch");
     return res.status(400).json({ msg: "cant fetch users - " + err });
   }
 }
