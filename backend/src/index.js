@@ -25,6 +25,9 @@ app.use(
 app.use(express.json({ limit: "10mb" }));
 app.use(cookieParser());
 
+app.use("/api/auth", authRoute);
+app.use("/api/message", messageRoute);
+
 if (process.env.NODE_ENV == "production") {
   app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 
@@ -36,9 +39,6 @@ if (process.env.NODE_ENV == "production") {
 // app.get("/", (req, res) => {
 //   return res.json({ "msg:": "Server Working!" });
 // });
-
-app.use("/api/auth", authRoute);
-app.use("/api/message", messageRoute);
 
 server.listen(PORT, () => {
   console.log("Server Started at ", PORT);
